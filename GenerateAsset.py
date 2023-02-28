@@ -6,9 +6,13 @@ class AssetGenerator(tk.Frame):
     def __init__(self, parent, asset_base: dict = None):
         super().__init__(parent)
         self.parent = parent
+        self.name = "New Asset"
 
         # Add tab to notebook.
-        parent.add(self, text="New Asset")
+        parent.add(self, text=self.name)
+        parent.select(self)
+        close_button = tk.Button(self, text="Delete Tab", command=self.close)
+        close_button.grid(sticky=tk.NE)
 
         # Add required keys.
         necessary_keys = ["Head", "Specs", "Foot"]
@@ -22,12 +26,17 @@ class AssetGenerator(tk.Frame):
         # Display Asset
         self.create_displays()
 
+    def close(self, evt=None):
+        print(f"Deleting '{self.name}'.")
+        self.parent.forget(self)
+
     def update_tab_name(self, new_name: str):
         """
         Changes the name of the tab.
         :param new_name: Name of the tab.
         :return: None.
         """
+        self.name = new_name
         self.parent.tab(self, text=new_name)
 
     def create_displays(self):
