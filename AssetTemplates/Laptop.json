@@ -1,0 +1,20 @@
+{
+	"Head": {
+		"Disclaimer": "Laptops are used and may contain cosmetic blemishes such as scratches and scuffs, none of which affect performance."
+	},
+	"Specs": {
+		"CPU": "",
+		"RAM": "",
+		"Storage": "",
+		"Size": "",
+		"Resolution": "",
+		"Camera": "",
+		"Battery Capacity": "",
+		"IO": {}
+	},
+	"Foot": {
+		"Spec Link": "",
+		"Cables": "",
+		"Operating System": ""
+	}
+}
