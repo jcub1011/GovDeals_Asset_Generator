@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 from Directories import Directories
-import os
-import json
 
 
 class AssetSelector(tk.Frame):
