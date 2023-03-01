@@ -7,6 +7,10 @@ class AssetGeneratorTree(ttk.Treeview):
         super().__init__(parent)
         self.name = "New Asset"
         self.parent = parent
+        self.asset = asset_base
+
+        # Add scroll bar.
+        # vertical_bar = tk.Scrollbar(self, orient=tk.VERTICAL, command=tv.yview)
 
         # Add tab to notebook.
         parent.add(self, text=self.name)
@@ -15,13 +19,18 @@ class AssetGeneratorTree(ttk.Treeview):
         # close_button = tk.Button(self, text="X", command=self.close)
         # parent.add(close_button, text="x")
         # close_button.grid(sticky=tk.NE)
+        self.display_information()
 
     def close(self, evt=None):
         print(f"Deleting '{self.name}'.")
         self.parent.forget(self)
 
     def display_information(self):
-        pass
+        for group, items in self.asset.items():
+            new_group = self.insert('', tk.END, group, text=group)
+            for key, value in items.items():
+                self.insert(new_group, tk.END, key, text=key)
+
 
 
 
