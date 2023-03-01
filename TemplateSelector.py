@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from Directories import Directories
-from GenerateAsset import AssetGenerator
+from GenerateAsset import AssetGenerator, AssetGeneratorTree
 import os
 import json
 
@@ -86,4 +86,4 @@ class TemplateSelector(tk.Frame):
 
     def select_template(self):
         print("Selected template.")
-        AssetGenerator(self.parent, self.selected_template)
+        AssetGeneratorTree(self.parent, self.selected_template)

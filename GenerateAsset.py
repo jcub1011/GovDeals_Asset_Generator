@@ -2,6 +2,30 @@ import tkinter as tk
 from tkinter import ttk
 
 
+class AssetGeneratorTree(ttk.Treeview):
+    def __init__(self, parent: ttk.Notebook, asset_base: dict = None):
+        super().__init__(parent)
+        self.name = "New Asset"
+        self.parent = parent
+
+        # Add tab to notebook.
+        parent.add(self, text=self.name)
+        parent.select(self)
+        # TODO: Implement close button.
+        # close_button = tk.Button(self, text="X", command=self.close)
+        # parent.add(close_button, text="x")
+        # close_button.grid(sticky=tk.NE)
+
+    def close(self, evt=None):
+        print(f"Deleting '{self.name}'.")
+        self.parent.forget(self)
+
+    def display_information(self):
+        pass
+
+
+
+
 class AssetGenerator(tk.Frame):
     def __init__(self, parent, asset_base: dict = None):
         super().__init__(parent)
@@ -80,7 +104,7 @@ class AssetGenerator(tk.Frame):
         add_button = tk.Button(asset_frame, text="Add Entry")
 
     def add_multiline_entry(self, parent, name: str, value: str = ""):
-        pass    # TODO: Implement
+        pass  # TODO: Implement
 
     def display_specs(self, container: tk.Frame, name: str, specs: dict):
         """
