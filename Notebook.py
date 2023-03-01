@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from TemplateSelector import TemplateSelector
 from AssetSelector import AssetSelector
+from ctypes import windll
+windll.shcore.SetProcessDpiAwareness(1)
 
 
 class Application(tk.Tk):
@@ -9,8 +11,8 @@ class Application(tk.Tk):
         super().__init__()
         self.title("GovDeals Asset Generator")
         # Gets window and display dimensions and calculates center position.
-        window_width = 800
-        window_height = 600
+        window_width = 1000
+        window_height = 800
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
         center_x = int(screen_width/2 - window_width/2)
